@@ -23,6 +23,10 @@ RestFire is service which reliably makes async rest calls to given end point.
 > 4. On 4XX it sidelines it to Mongo immediately. 
 > 5. On 5XX it persist it back to Bigqueue and retries for given amount of time.
 
+#### ***Running with Docker*** ####
+> 1. Build image : ```docker build -t restfire .```
+> 2. Running docker image : ```docker run -e "JAVA_PROCESS_MIN_HEAP=2g" -e "JAVA_PROCESS_MAX_HEAP=2g" -e "BIGQUEUE_PATH=/data" -e "DROP_MESSAGE_POST_MINUTES=5" -e "MONGO_HOST=flo-mongo-0.opinio.5673.mongodbdns.com" -e "MONGO_PORT=27000" -p 18000:18000 -v /data:/data <image-id>```
+
 #### ***API*** ####
 
 ##### ***POST Single Document*** #####
